@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-
+import Image from "next/image";
 const ExperienceSection = () => {
   const experiences = [
 {
@@ -122,12 +122,18 @@ const ExperienceSection = () => {
 <div className={`flex items-center mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
   {/* Logo de la empresa, solo si NO es proyecto */}
   {exp.type !== 'project' && exp.logo && (
-    <motion.div
-      variants={iconVariants}
-      className="w-12 h-12 rounded-lg flex items-center justify-center mr-3 overflow-hidden"
-    >
-      <img src={exp.logo} alt={`${exp.company} logo`} className="w-full h-full object-contain"/>
-    </motion.div>
+<motion.div
+  variants={iconVariants}
+  className="w-12 h-12 rounded-lg flex items-center justify-center mr-3 overflow-hidden"
+>
+  <Image 
+    src={exp.logo} 
+    alt={`${exp.company} logo`} 
+    width={48} 
+    height={48} 
+    className="object-contain"
+  />
+</motion.div>
   )}
 
   <div className={index % 2 === 0 ? 'lg:text-right' : ''}>
@@ -180,38 +186,51 @@ const ExperienceSection = () => {
 
         {/* Línea de tiempo móvil alternativa */}
         <div className="lg:hidden mt-12">
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20"
-              >
-                <div className="flex items-start mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-3">
-                    <span className="text-lg">{exp.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white">{exp.title}</h3>
-                    <p className="text-purple-300">{exp.company}</p>
-                    <span className="text-purple-400 text-sm font-semibold">{exp.period}</span>
-                  </div>
-                </div>
-                <p className="text-gray-300 text-sm mb-3">{exp.description}</p>
-                <div className="flex flex-wrap gap-1">
-                  {exp.technologies.map((tech) => (
-                    <span key={tech} className="px-2 py-1 bg-slate-700/50 rounded text-xs text-gray-300">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+  <div className="space-y-8">
+    {experiences.map((exp, index) => (
+      <motion.div
+        key={exp.id}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20"
+      >
+        <div className="flex items-center mb-4">
+          {/* Logo de la empresa */}
+          {exp.type !== 'project' && exp.logo && (
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-3 overflow-hidden">
+              <Image 
+                src={exp.logo} 
+                alt={`${exp.company} logo`} 
+                width={48} 
+                height={48} 
+                className="object-contain"
+              />
+            </div>
+          )}
+
+          <div>
+            <h3 className="text-lg font-bold text-white">{exp.title}</h3>
+            <p className="text-purple-300">{exp.company}</p>
+            <span className="text-purple-400 text-sm font-semibold">{exp.period}</span>
           </div>
         </div>
+
+        <p className="text-gray-300 text-sm mb-3">{exp.description}</p>
+
+        <div className="flex flex-wrap gap-1">
+          {exp.technologies.map((tech) => (
+            <span key={tech} className="px-2 py-1 bg-slate-700/50 rounded text-xs text-gray-300">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

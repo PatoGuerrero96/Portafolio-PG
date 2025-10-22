@@ -28,7 +28,7 @@ export default function Home() {
             {/* Texto - 60% */}
             <div className="text-white space-y-3  lg:space-y-6">
               <div className="space-y-3 lg:space-y-4">
-                <p className="text-lg lg:text-3xl text-purple-300 font-light">Hola, soy</p>
+                <p className="mt-15 md:mt-0 lg:mt-0 text-lg lg:text-3xl text-purple-300 font-light">Hola, soy</p>
                 <h1 className="text-4xl lg:text-7xl font-bold">
                   Patricio <span className="text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">Guerrero</span>
                 </h1>
@@ -47,9 +47,12 @@ Además de mi trabajo en desarrollo, tengo experiencia en la automatización de 
               </p>
               
               <div className="flex flex-wrap gap-3 lg:gap-4 pt-4 lg:pt-6">
-                <button className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-xl hover:from-purple-600 hover:to-pink-700 transition-all duration-300 shadow-lg">
-                  Descargar CV
-                </button>
+                <a href="/CV-Patricio-Guerrero.pdf" download>
+  <button className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-xl hover:from-purple-600 hover:to-pink-700 transition-all duration-300 shadow-lg">
+    Descargar CV
+  </button>
+</a>
+
                <a 
   href="#contacto" 
   className="border border-purple-400 text-purple-300 px-6 lg:px-8 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-xl hover:bg-purple-400/10 transition duration-300"

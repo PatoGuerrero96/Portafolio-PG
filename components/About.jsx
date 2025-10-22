@@ -93,7 +93,7 @@ const About = () => {
             </div>
             <div>
               <h4 className="text-white font-semibold">Ingeniería en Informática</h4>
-              <p className="text-purple-300">Duoc UC - Sede Viña del Mar (2023)</p>
+              <p className="text-purple-300">Duoc UC - Sede Viña del Mar (2022)</p>
             </div>
           </motion.div>
 
