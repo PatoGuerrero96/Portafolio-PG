@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { HiAcademicCap } from "react-icons/hi";
+import { FaAward } from "react-icons/fa";
 const About = () => {
 
 
@@ -73,7 +75,6 @@ const About = () => {
           viewport={{ once: true }}
           className="space-y-8 sm:pt-10 pt-0"
         >
-          {/* Tarjeta Educación */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +85,9 @@ const About = () => {
           >
             <div className="flex items-center space-x-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">🎓</span>
+                <span className="text-white text-2xl">
+                    <HiAcademicCap />
+                 </span>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Educación</h3>
@@ -108,7 +111,9 @@ const About = () => {
           >
             <div className="flex items-center space-x-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">🏆</span>
+               <span className="text-white text-2xl">
+                 <FaAward />
+                </span>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Certificación</h3>
